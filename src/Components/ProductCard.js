@@ -1,7 +1,11 @@
 import React from 'react';
 
-const ProductCard = () => {
-    return <h1>ProductCard!</h1>
+const ProductCard = props => {
+    return (
+        <div>
+            Product Card!
+        </div>
+    )
 }
 
 export default ProductCard
