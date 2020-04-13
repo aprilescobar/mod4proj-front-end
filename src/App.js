@@ -12,8 +12,7 @@ import Bottoms from './Containers/Bottoms';
 import Tops from './Containers/Tops';
 import CreateOutfit from './Containers/CreateOutfit';
 
-
-const App = props => {
+const App = () => {
   return (
     <Router>
       <div>
