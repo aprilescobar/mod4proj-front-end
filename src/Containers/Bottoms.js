@@ -10,19 +10,21 @@ class Bottoms extends React.Component {
     componentDidMount() {
         fetch('http://localhost:3000/bottoms')
         .then(res => res.json())
-        .then(bottoms => this.setState(bottoms))
+        .then(bottoms => this.setState({
+            bottoms: bottoms
+        }))
     }
 
     renderBottoms = () => {
-        console.log('inside renderBottoms', this.state.bottoms)
-        // let bottoms = [...this.state.bottoms]
-        // return bottoms.map( bottom => {
-        //     return <ProductCard bottom={bottom} />
-        // })
+        let bottoms = [...this.state.bottoms]
+        return bottoms.map( bottom => {
+            return <ProductCard bottom={bottom} />
+        })
     }
  
-    render () {
-        console.log(this.state)
+    render() {
+        console.log('inside renderBottoms', this.state.bottoms)
+        // console.log(this.state)
         return (    
             <div>
                 <h1>Bottoms!</h1>
