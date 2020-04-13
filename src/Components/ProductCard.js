@@ -1,19 +1,19 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 const ProductCard = props => {
-    console.log(props.bottoms)
+
+    const product = props.product
     return (
-        <div>
-            <h2>{props.bottom.name}</h2>
-        </div>
+        <Card className="productCards" style={{ width: '18rem' }}>
+            <Card.Img  src={product.img_url} value={product.id}/>
+            <Card.Body>
+                <Card.Title>{product.name}</Card.Title>
+                <Button variant="outline-secondary">+ Collection</Button>{' '}
+            </Card.Body>
+        </Card>
     )
 }
 
 export default ProductCard
-
-    // "id": 1,
-    // "brand": "Club Monaco",
-    // "name": "Super Slim Denim",
-    // "color": "Black",
-    // "description": "CM's slimmest denim. A close fit and classic styling bring a polished, streamlined update to the traditional blue jean.",
-    // "img_url": "https://www.rlmedia.io/is/image/PoloGSI/s7-1294901_lifestyle?$CMPDP$",

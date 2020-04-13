@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CreateOutfit = () => {
-    return <h1>CreateOutfit!</h1>
+    return <h3>CreateOutfit!</h3>
 }
 
 export default CreateOutfit
