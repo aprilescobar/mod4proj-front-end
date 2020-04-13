@@ -1,37 +1,24 @@
 import React from 'react';
 import ProductCard from '../Components/ProductCard';
 
-class Bottoms extends React.Component {
+const Bottoms = props => {
 
-    state = {
-        bottoms: []
-    }
-    
-    componentDidMount() {
-        fetch('http://localhost:3000/bottoms')
-        .then(res => res.json())
-        .then(bottoms => this.setState({
-            bottoms: bottoms
-        }))
-    }
+    console.log("inside Bottoms", props.bottoms)
 
-    renderBottoms = () => {
-        let bottoms = [...this.state.bottoms]
-        return bottoms.map( bottom => {
-            return <ProductCard bottom={bottom} />
+    const renderBottoms = () => {
+        return props.bottoms.map( bottom => {
+            console.log("inside renderBottoms", props.bottoms)
+        //     // return <ProductCard key={bottom.id} bottom={bottom} />
         })
     }
- 
-    render() {
-        console.log('inside renderBottoms', this.state.bottoms)
-        // console.log(this.state)
-        return (    
-            <div>
-                <h1>Bottoms!</h1>
-                {this.renderBottoms()}
-            </div>
-        )
-    }
+
+    return (    
+        <div>
+            <h1>Bottoms!</h1>
+            {renderBottoms()}
+        </div>
+    )
+  
 }
 
 export default Bottoms
