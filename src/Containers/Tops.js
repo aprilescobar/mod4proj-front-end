@@ -1,7 +1,32 @@
 import React from 'react';
+import ProductCard from '../Components/ProductCard';
 
-const Tops = () => {
-    return <h1>Tops!</h1>
+class Tops extends React.Component{
+    state = {
+        tops: []
+    }
+
+    componentDidMount() {
+    fetch('http://localhost:3000/tops')
+    .then(res => res.json())
+    .then(tops => this.setState({tops}))
+    }
+
+    renderTops = () => {
+        let tops = [...this.state.tops]
+        return tops.map(top => {
+            return <ProductCard key={top.id} product={top} />
+        })
+    }
+
+    render () {
+        return (    
+            <div className="wrapper">
+                <h3>Tops!</h3>
+                {this.renderTops()}
+            </div>
+        )    
+    }
 }
 
 export default Tops

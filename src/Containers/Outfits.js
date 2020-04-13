@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Outfits = () => {
-    return <h1>Outfits!</h1>
+    return <h3>Outfits!</h3>
 }
 
 export default Outfits
