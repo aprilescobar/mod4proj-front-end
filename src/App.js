@@ -11,11 +11,13 @@ import Shoes from './Containers/Shoes';
 import Bottoms from './Containers/Bottoms';
 import Tops from './Containers/Tops';
 import CreateOutfit from './Containers/CreateOutfit';
+import Fashion from './Containers/Fashion'
 
-const App = () => {
-  return (
-    <Router>
-      <div>
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <div>
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
@@ -26,9 +28,11 @@ const App = () => {
           <Route exact path="/bottoms" component={Bottoms} />
           <Route exact path="/shoes" component={Shoes} />
           <Route exact path="/outfits/new" component={CreateOutfit} />
-      </div>
-    </Router>
-  );
+          <Fashion />
+        </div>
+      </Router>
+    );
+  }
 }
 
 // default export syntax
