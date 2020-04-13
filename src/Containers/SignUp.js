@@ -3,7 +3,7 @@ import React from 'react'
 const SignUp = () => {
     return (
         <form>
-            <h1>Sign Up</h1>
+            <h3>Sign Up</h3>
             <div>
                 <input type="text" name="username" placeholder="Username" />
                 <label htmlFor="username">Username</label>

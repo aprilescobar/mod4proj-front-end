@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './styles.css'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Navbar from './Components/NavBar';
 import Home from './Containers/Home';
@@ -11,7 +12,7 @@ import Shoes from './Containers/Shoes';
 import Bottoms from './Containers/Bottoms';
 import Tops from './Containers/Tops';
 import CreateOutfit from './Containers/CreateOutfit';
-import Fashion from './Containers/Fashion'
+// import Fashion from './Containers/Fashion'
 
 class App extends React.Component {
   render() {
@@ -28,7 +29,6 @@ class App extends React.Component {
           <Route exact path="/bottoms" component={Bottoms} />
           <Route exact path="/shoes" component={Shoes} />
           <Route exact path="/outfits/new" component={CreateOutfit} />
-          <Fashion />
         </div>
       </Router>
     );
