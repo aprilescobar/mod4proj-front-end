@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CreateForm = () => {
-    return <h1>CreateForm!</h1>
+    return <h3>CreateForm!</h3>
 }
 
 export default CreateForm

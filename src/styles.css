@@ -149,4 +149,13 @@ div.desc {
   text-align: center;
 }
 
+.column {
+  float: left;
+  width: 50%;
+}
 
+.options {
+  height: 800px;
+  
+  overflow: scroll;
+}
