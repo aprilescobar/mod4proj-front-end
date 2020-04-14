@@ -1,17 +1,16 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
 const ProductCard = props => {
 
     const product = props.product
     return (
-        <div class="responsive" className="productCards">
+        <div className="productCards">
             <div class="gallery">
-                    <img src={product.img_url} width="320" height="400" />
+                    <img src={product.img_url} />
                 <div class="desc">
-                    <p><b>{product.name}</b></p>
-                    <Button variant="outline-secondary">+ Collection</Button>{' '}
+                    <h6>{product.name}</h6>
+                    <Button variant="outline-secondary" value={product.id}>+ Collection</Button>{' '}
                 </div>
             </div>
         </div>
