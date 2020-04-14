@@ -1,7 +1,32 @@
 import React from 'react';
+import OutfitCard from '../Components/OutfitCard';
 
-const Outfits = () => {
-    return <h3>Outfits!</h3>
+class Outfits extends React.Component {
+    state = {
+        outfits: []
+    }
+
+    componentDidMount() {
+        fetch('http://localhost:3000/outfits')
+            .then(resp => resp.json())
+            .then(data => this.setState({
+            outfits: data
+        }))
+    }
+
+    renderOutfits = () => {
+        return this.state.outfits.map(outfit => 
+            <OutfitCard key={outfit.id} outfit={outfit} />)
+    }
+
+    render() {
+        return (
+            <div className="wrapper">
+                <h3>Browse All Outfits!</h3>
+                {this.renderOutfits()}
+            </div>
+        )
+    }
 }
 
-export default Outfits
+export default Outfits; 
