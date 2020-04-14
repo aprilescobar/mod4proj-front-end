@@ -3,7 +3,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-
 }
 
 h3 {
@@ -96,43 +95,58 @@ div.gallery {
 }
 
 div.gallery:hover {
-border: 1px solid #777;
+  border: 1px solid #777;
 }
 
 div.gallery img {
-margin-top: 5%;
-width: 90%;
-height: auto;
+  margin-top: 5%;
+  width: 90%;
+  height: auto;
 }
 
 div.desc {
-padding: 15px;
-text-align: center;
+  padding: 15px;
+  text-align: center;
 }
 
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .responsive {
-padding: 0 6px;
-float: left;
-width: 24.99999%;
-display: block;
-margin-top: 9px;
+  padding: 0 6px;
+  float: left;
+  width: 24.99999%;
+  display: block;
+  margin-top: 9px;
 }
 
 @media only screen and (max-width: 700px) {
-.responsive {
+  .responsive {
     width: 49.99999%;
     margin: 6px 0;
-}
+  }
 }
 
 @media only screen and (max-width: 500px) {
-.responsive {
+  .responsive {
     width: 100%;
+  }
 }
+
+#outfitLikes {
+    border: 1px solid rgba(112, 167, 240, 0.479); 
+    width: 60px;
+    background-color:rgba(255, 255, 255, 0);
+    text-align: center;
+    font-size: 14pt;
+    transition: 0.2s;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.479);
+    justify-content: center;
+}
+
+.likeButtonDiv {
+  text-align: center;
 }
 
 

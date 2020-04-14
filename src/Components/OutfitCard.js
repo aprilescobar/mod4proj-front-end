@@ -5,7 +5,6 @@ import { Container, Row, Col} from 'react-bootstrap';
 class OutfitCard extends React.Component {
 
     render() {
-        console.log(this.props.outfit)
         const outfit = this.props.outfit
         const top = this.props.outfit.top
         const user = this.props.outfit.user
@@ -39,12 +38,12 @@ class OutfitCard extends React.Component {
                             </div>
                     </Col>
                 </Row> 
-                <Container>
-                    <button id="outfitLikes">{likes} <span role="img"> ❤️</span></button>
+                    <div className="likeButtonDiv">
+                        <button id="outfitLikes">{likes} <span role="img"> ❤️</span></button>
+                    </div>
+                    
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
                     <br></br>
-                </Container>
-
             </Container>
         )
     }
