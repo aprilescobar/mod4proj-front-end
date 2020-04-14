@@ -8,10 +8,9 @@ import Col from 'react-bootstrap/Col'
 
 const OptionCard = props => {
 
-
     const renderProducts = products => {
         return products.map( product => {
-            return <div className="responsive">{card(product)}</div>
+            return <div className="resp">{card(product)}</div>
         })
     }
 

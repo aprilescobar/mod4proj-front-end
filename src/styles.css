@@ -121,6 +121,14 @@ div.desc {
   margin-top: 9px;
 }
 
+.resp {
+  padding: 0 6px;
+  float: left;
+  width: 50%;
+  display: block;
+  margin-top: 9px;
+}
+
 @media only screen and (max-width: 700px) {
   .responsive {
     width: 49.99999%;
