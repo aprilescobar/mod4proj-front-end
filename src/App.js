@@ -34,7 +34,7 @@ class App extends React.Component {
 
 
   render() {
-    console.log(this.state)
+    console.log("App.js - state:", this.state)
     return (
       <Router>
         <div>
@@ -47,7 +47,7 @@ class App extends React.Component {
           <Route exact path="/tops" render={() => <Tops getProduct={this.getProduct}/>} />
           <Route exact path="/bottoms" render={() => <Bottoms getProduct={this.getProduct}/>} />
           <Route exact path="/shoes" render={() => <Shoes getProduct={this.getProduct}/>} />
-          <Route exact path="/outfits/new" render={() => <CreateOutfit />} />
+          <Route exact path="/outfits/new" render={() => <CreateOutfit {...this.state} />} />
         </div>
       </Router>
     );
