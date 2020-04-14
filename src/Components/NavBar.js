@@ -8,9 +8,13 @@ const NavBar = () => {
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-               <Nav.Link href="/users">Users</Nav.Link>
-               <Nav.Link href="/outfits">Outfits</Nav.Link>
-               <Nav.Link href="/outfits/new">Collection</Nav.Link>
+               {/* <Nav.Link href="/outfits/new">My Wardrobe</Nav.Link> */}
+            <NavDropdown title="Community" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/outfits">Outfits</NavDropdown.Item>
+                  <NavDropdown.Item href="/users">Users</NavDropdown.Item>
+                  {/* <NavDropdown.Divider /> */}
+                  {/* <NavDropdown.Item href="/outfits/new">Create Outfit</NavDropdown.Item> */}
+               </NavDropdown>
                <NavDropdown title="See Options" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/tops">Tops</NavDropdown.Item>
                   <NavDropdown.Item href="/bottoms">Bottoms</NavDropdown.Item>
@@ -20,8 +24,8 @@ const NavBar = () => {
                </NavDropdown>
             </Nav>
             <Form inline>
-               <Button href="/login" variant="outline-secondary">Log In</Button>
-               <Button href="/signup" variant="outline-secondary">Sign Up</Button>
+               <Button href="/login" variant="outline-secondary" className="navBtn">Log In</Button>
+               <Button href="/signup" variant="outline-secondary" className="navBtn">Sign Up</Button>
             </Form>
          </Navbar.Collapse>
       </Navbar>

@@ -5,6 +5,8 @@ import { Container, Row, Col} from 'react-bootstrap';
 class OutfitCard extends React.Component {
 
     render() {
+        console.log(this.props.outfit)
+      
         const outfit = this.props.outfit
         const top = this.props.outfit.top
         const user = this.props.outfit.user

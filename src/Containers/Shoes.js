@@ -15,14 +15,14 @@ class Shoes extends React.Component{
     renderShoes = () => {
         let shoes = [...this.state.shoes]
         return shoes.map(shoe => {
-            return <ProductCard key={shoe.id} product={shoe} />
+            return <div class="responsive"><ProductCard key={shoe.id} product={shoe} /></div>
         })
     }
 
     render () {
         return (    
-            <div className="wrapper">
-                <h3>shoes!</h3>
+            <div>
+                <h3>- Shoes -</h3>
                 {this.renderShoes()}
             </div>
         )    

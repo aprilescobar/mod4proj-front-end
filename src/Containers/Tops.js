@@ -15,14 +15,14 @@ class Tops extends React.Component{
     renderTops = () => {
         let tops = [...this.state.tops]
         return tops.map(top => {
-            return <ProductCard key={top.id} product={top} />
+            return <div class="responsive"><ProductCard key={top.id} product={top} /></div>
         })
     }
 
     render () {
         return (    
-            <div className="wrapper">
-                <h3>Tops!</h3>
+            <div>
+                <h3>- Tops -</h3>
                 {this.renderTops()}
             </div>
         )    
