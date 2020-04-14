@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card, CardGroup, CardTitle } from 'react-bootstrap';
 import { Container, Row, Col} from 'react-bootstrap';
 
 
@@ -9,31 +8,42 @@ class OutfitCard extends React.Component {
         const outfit = this.props.outfit
         const top = this.props.outfit.top
         const user = this.props.outfit.user
+        const bottom = this.props.outfit.bottom
+        const shoe = this.props.outfit.shoe
+        const likes = this.props.outfit.likes
         
         return (
-            <Container>
-                <Container><strong>{outfit.name}</strong></Container>
+            <Container className="outfitContainer">
+                <br></br>
+                <Container>
+                    <p className="outfitTitle">{outfit.name}</p>
+                </Container>
                 <Row>
                     <Col>
-                            <img className="card-img-top" src={top.img_url} alt="Card image cap" />
+                            <img className="outfitImage" src={top.img_url} alt={top.name} />
                             <div className="card-body">
-                                <h6 className="card-title">{top.name}</h6>
+                                <h6 className="cardTitle">{top.name}</h6>
                             </div>
                     </Col>
                     <Col>
-                            <img className="card-img-top" src={top.img_url} alt="Card image cap" />
+                            <img className="outfitImage" src={bottom.img_url} alt={bottom.name} />
                             <div className="card-body">
-                                <h6 className="card-title">{top.name}</h6>
+                                <h6 className="cardTitle">{bottom.name}</h6>
                             </div>
                     </Col>
                     <Col>
-                            <img className="card-img-top" src={top.img_url} alt="Card image cap" />
+                            <img className="outfitImage" src={shoe.img_url} alt={shoe.name} />
                             <div className="card-body">
-                                <h6 className="card-title">{top.name}</h6>
+                                <h6 className="cardTitle">{shoe.name}</h6>
                             </div>
                     </Col>
                 </Row> 
-                <br></br>
+                <Container>
+                    <button id="outfitLikes">{likes} <span role="img"> ❤️</span></button>
+                    <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
+                    <br></br>
+                </Container>
+
             </Container>
         )
     }

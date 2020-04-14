@@ -22,7 +22,7 @@ class Outfits extends React.Component {
     render() {
         return (
             <div className="wrapper">
-                <h3>All Outfits</h3>
+                <h3>Browse All Outfits!</h3>
                 {this.renderOutfits()}
             </div>
         )
