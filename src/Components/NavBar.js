@@ -14,7 +14,7 @@ const NavBar = () => {
                   <NavDropdown.Item><Link to="/users" className="links">Users</Link></NavDropdown.Item>
                </NavDropdown>
                <NavDropdown title="See Options" id="basic-nav-dropdown">
-                  <NavDropdown.Item><Link to='/tops' className="links">Tops</Link></NavDropdown.Item>
+                  <NavDropdown.Item componentClass='span'><Link to='/tops' className="links">Tops</Link></NavDropdown.Item>
                   <NavDropdown.Item><Link to="/bottoms" className="links">Bottoms</Link></NavDropdown.Item>
                   <NavDropdown.Item><Link to="/shoes" className="links">Shoes</Link></NavDropdown.Item>
                   <NavDropdown.Divider />
