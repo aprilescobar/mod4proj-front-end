@@ -30,6 +30,54 @@ h3 {
     text-align: center;
 }
 
+.outfitContainer {
+    padding: 10px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 7%;
+}
+
+.outfitImage {
+    height: 350px;
+    width: auto;
+    align-self: center;
+}
+
+.cardTitle {
+    text-align: left;
+    color: rgb(26, 26, 74);
+    font-size: 12pt;
+    font-family: sans-serif;
+}
+
+.outfitTitle {
+    text-align: center;
+    color: rgb(26, 26, 74);
+    font-size: 25pt;
+    font-family: sans-serif;
+}
+
+#outfitDesigner{
+    text-align: right; 
+    align-self: right;
+    font-size: 9pt; 
+    color: rgb(43, 42, 42); 
+    font-family: sans-serif;
+}
+
+#outfitLikes {
+    border: 1px solid rgba(112, 167, 240, 0.479); 
+    width: 60px;
+    background-color:rgba(255, 255, 255, 0);
+    text-align: center;
+    font-size: 14pt;
+    transition: 0.2s;
+    box-shadow: 2px 2px rgba(0, 0, 0, 0.479);
+    justify-content: center;
+}
+
 div.gallery {
     border: 1px solid #ccc;
 }
