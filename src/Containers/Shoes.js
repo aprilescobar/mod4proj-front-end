@@ -15,7 +15,7 @@ class Shoes extends React.Component{
     renderShoes = () => {
         let shoes = [...this.state.shoes]
         return shoes.map(shoe => {
-            return <div className="responsive"><ProductCard key={shoe.id} product={shoe} /></div>
+            return <div className="responsive"><ProductCard key={shoe.id} product={shoe} getProduct={this.props.getProduct} category="shoes" /></div>
         })
     }
 

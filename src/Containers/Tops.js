@@ -15,7 +15,7 @@ class Tops extends React.Component{
     renderTops = () => {
         let tops = [...this.state.tops]
         return tops.map(top => {
-            return <div className="responsive"><ProductCard key={top.id} product={top} /></div>
+            return <div className="responsive"><ProductCard key={top.id} product={top} getProduct={this.props.getProduct} category="tops" /></div>
         })
     }
 
