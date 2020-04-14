@@ -3,6 +3,25 @@ import { Container, Row, Col} from 'react-bootstrap';
 
 
 class OutfitCard extends React.Component {
+    state = {
+        likes: this.props.outfit.likes
+    }
+
+    increaseLikes = () => {
+        let newLikes = this.state.likes + 1
+
+        fetch(`http://localhost:3000/outfits/${this.props.outfit.id}`, {
+            method: "PATCH",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                likes: (this.state.likes + 1)
+            })
+        })
+            .then(resp => resp.json())
+            .then(data => this.setState({
+                likes: newLikes
+            }))
+    }
 
     render() {
         const outfit = this.props.outfit
@@ -10,7 +29,6 @@ class OutfitCard extends React.Component {
         const user = this.props.outfit.user
         const bottom = this.props.outfit.bottom
         const shoe = this.props.outfit.shoe
-        const likes = this.props.outfit.likes
         
         return (
             <Container className="outfitContainer">
@@ -39,7 +57,7 @@ class OutfitCard extends React.Component {
                     </Col>
                 </Row> 
                     <div className="likeButtonDiv">
-                        <button id="outfitLikes">{likes} <span role="img"> ❤️</span></button>
+                    <button id={this.props.outfit.id} onClick={this.increaseLikes}>{this.state.likes} <span role="img"> ❤️</span></button>
                     </div>
                     
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
