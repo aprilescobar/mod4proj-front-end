@@ -5,7 +5,8 @@ const ProductCard = props => {
     const product = props.product
 
     const handleClick = () => {
-        props.getId(product.id)
+        console.log(props.category)
+        props.getProduct(product, props.category)
     }
 
     return (

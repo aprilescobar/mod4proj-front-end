@@ -15,7 +15,26 @@ import CreateOutfit from './Containers/CreateOutfit';
 // import Fashion from './Containers/Fashion'
 
 class App extends React.Component {
+
+  state = {
+    tops: [],
+    bottoms: [],
+    shoes: []
+  }
+
+  getProduct = (product, category) => {
+    if (category === 'tops') {
+      this.setState({ tops: [...this.state.tops, product]})
+    } if (category === 'bottoms') {
+      this.setState({ bottoms: [...this.state.bottoms, product]})
+    } if (category === 'shoes') {
+      this.setState({ shoes: [...this.state.shoes, product]})
+    }
+  }
+
+
   render() {
+    console.log(this.state)
     return (
       <Router>
         <div>
@@ -25,10 +44,10 @@ class App extends React.Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/outfits" component={Outfits} />
           <Route exact path="/users" component={Users} />
-          <Route exact path="/tops" component={Tops} />
-          <Route exact path="/bottoms" component={Bottoms} />
-          <Route exact path="/shoes" component={Shoes} />
-          <Route exact path="/outfits/new" component={CreateOutfit} />
+          <Route exact path="/tops" render={() => <Tops getProduct={this.getProduct}/>} />
+          <Route exact path="/bottoms" render={() => <Bottoms getProduct={this.getProduct}/>} />
+          <Route exact path="/shoes" render={() => <Shoes getProduct={this.getProduct}/>} />
+          <Route exact path="/outfits/new" render={() => <CreateOutfit />} />
         </div>
       </Router>
     );
