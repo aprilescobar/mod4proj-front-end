@@ -11,6 +11,19 @@ h3 {
     text-align: center;
 }
 
+.links {
+    color: black;
+}
+
+.links:hover{
+    background-color:transparent;
+    color: rgb(58, 61, 68)
+}
+
+.links:active {
+    background-color:transparent;
+}
+
 .navBtn {
     margin-left: 5px;
 }

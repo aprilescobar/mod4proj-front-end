@@ -15,8 +15,12 @@ class Bottoms extends React.Component{
     renderBottoms = () => {
         let bottoms = [...this.state.bottoms]
         return bottoms.map(bottom => {
-            return <div class="responsive"><ProductCard key={bottom.id} product={bottom} /></div>
+            return <div className="responsive"><ProductCard key={bottom.id} product={bottom} getId={this.getId}/></div>
         })
+    }
+
+    getId = id => {
+        console.log("Inside Bottoms, getID", id)
     }
 
     render () {
