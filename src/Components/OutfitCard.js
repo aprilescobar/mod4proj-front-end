@@ -5,7 +5,8 @@ import { Container, Row, Col} from 'react-bootstrap';
 class OutfitCard extends React.Component {
     state = {
         likes: this.props.outfit.likes, 
-        displayCommentForm: false
+        displayCommentForm: false, 
+        comments: []
     }
 
     increaseLikes = () => {
@@ -33,11 +34,30 @@ class OutfitCard extends React.Component {
     displayCommentForm = () => (
         <form id={this.props.outfit.id}>
             <div>
-                <input type="text" name="comment" placeholder="Tell us what you think about this outfit!" />
+                <input type="text" name="comment" placeholder="Comment here" />
             </div>
-            <input type="submit" value="Post Comment" />
+            <input type="submit" value="Post Comment" onSubmit={this.submitComment}/>
         </form>
     )
+
+    submitComment = (event) => {
+        event.preventDefault()
+
+        fetch('http://localhost:3000/comments', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json'
+            },
+            body: JSON.stringify({ ...this.state.comments, outfit_id: this.props.outfit.id })
+        })
+            .then(res => res.json())
+            .then(newReview => {
+                this.props.handleNewReview(newReview)
+            })
+        this.setState(initialState)
+
+    }
 
     render() {
         const outfit = this.props.outfit
