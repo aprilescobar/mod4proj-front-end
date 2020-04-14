@@ -22,7 +22,7 @@ class Bottoms extends React.Component{
     render () {
         return (    
             <div>
-                <h3>Bottoms!</h3>
+                <h3>- Bottoms -</h3>
                 {this.renderBottoms()}
             </div>
         )    

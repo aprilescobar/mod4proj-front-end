@@ -22,7 +22,7 @@ class Shoes extends React.Component{
     render () {
         return (    
             <div>
-                <h3>shoes!</h3>
+                <h3>- Shoes -</h3>
                 {this.renderShoes()}
             </div>
         )    

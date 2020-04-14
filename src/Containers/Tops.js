@@ -22,7 +22,7 @@ class Tops extends React.Component{
     render () {
         return (    
             <div>
-                <h3>Tops!</h3>
+                <h3>- Tops -</h3>
                 {this.renderTops()}
             </div>
         )    
