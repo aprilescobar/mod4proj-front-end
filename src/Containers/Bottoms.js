@@ -15,13 +15,13 @@ class Bottoms extends React.Component{
     renderBottoms = () => {
         let bottoms = [...this.state.bottoms]
         return bottoms.map(bottom => {
-            return <ProductCard key={bottom.id} product={bottom} />
+            return <div class="responsive"><ProductCard key={bottom.id} product={bottom} /></div>
         })
     }
 
     render () {
         return (    
-            <div className="wrapper">
+            <div>
                 <h3>Bottoms!</h3>
                 {this.renderBottoms()}
             </div>

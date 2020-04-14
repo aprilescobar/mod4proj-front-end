@@ -6,13 +6,15 @@ const ProductCard = props => {
 
     const product = props.product
     return (
-        <Card className="productCards" style={{ width: '18rem' }}>
-            <Card.Img  src={product.img_url} value={product.id}/>
-            <Card.Body>
-                <Card.Title>{product.name}</Card.Title>
-                <Button variant="outline-secondary">+ Collection</Button>{' '}
-            </Card.Body>
-        </Card>
+        <div class="responsive" className="productCards">
+            <div class="gallery">
+                    <img src={product.img_url} width="320" height="400" />
+                <div class="desc">
+                    <p><b>{product.name}</b></p>
+                    <Button variant="outline-secondary">+ Collection</Button>{' '}
+                </div>
+            </div>
+        </div>
     )
 }
 
