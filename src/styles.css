@@ -167,3 +167,7 @@ div.desc {
   
   overflow: scroll;
 }
+
+#commentForm {
+  text-align: center;
+}

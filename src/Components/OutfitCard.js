@@ -4,7 +4,8 @@ import { Container, Row, Col} from 'react-bootstrap';
 
 class OutfitCard extends React.Component {
     state = {
-        likes: this.props.outfit.likes
+        likes: this.props.outfit.likes, 
+        displayCommentForm: false
     }
 
     increaseLikes = () => {
@@ -22,6 +23,21 @@ class OutfitCard extends React.Component {
                 likes: newLikes
             }))
     }
+
+    toggleDisplayCommentForm = () => {
+        this.setState({
+            displayCommentForm: !this.state.displayCommentForm
+        })
+    }
+
+    displayCommentForm = () => (
+        <form id={this.props.outfit.id}>
+            <div>
+                <input type="text" name="comment" placeholder="Tell us what you think about this outfit!" />
+            </div>
+            <input type="submit" value="Post Comment" />
+        </form>
+    )
 
     render() {
         const outfit = this.props.outfit
@@ -57,9 +73,12 @@ class OutfitCard extends React.Component {
                     </Col>
                 </Row> 
                     <div className="likeButtonDiv">
-                    <button id={this.props.outfit.id} onClick={this.increaseLikes}>{this.state.likes} <span role="img"> ❤️</span></button>
+                        <button id={this.props.outfit.id} onClick={this.increaseLikes}>{this.state.likes} <span role="img"> ❤️</span></button>
+                        <button onClick={this.toggleDisplayCommentForm}>Add a Comment</button>
                     </div>
-                    
+                    <div id="commentForm">
+                        {this.state.displayCommentForm && this.displayCommentForm()}
+                    </div>
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
                     <br></br>
             </Container>
