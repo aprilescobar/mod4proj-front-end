@@ -21,7 +21,7 @@ class Shoes extends React.Component{
 
     render () {
         return (    
-            <div className="wrapper">
+            <div>
                 <h3>shoes!</h3>
                 {this.renderShoes()}
             </div>
