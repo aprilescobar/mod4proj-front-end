@@ -3,20 +3,29 @@ import ProductCard from '../Components/ProductCard';
 
 class Bottoms extends React.Component{
     state = {
-        bottoms: []
+        bottoms: [],
+        bottomsClicked: ""
     }
 
     componentDidMount() {
-    fetch('http://localhost:3000/bottoms')
-    .then(res => res.json())
-    .then(bottoms => this.setState({bottoms}))
+        fetch('http://localhost:3000/bottoms')
+        .then(res => res.json())
+        .then(bottoms => this.setState({bottoms}))    
+        localStorage.bottomsClicked && this.setState({bottomsClicked: localStorage.bottomsClicked})
     }
 
     renderBottoms = () => {
-        let bottoms = [...this.state.bottoms]
+        const bottoms = [...this.state.bottoms]
         return bottoms.map(bottom => {
-            return <div className="responsive"><ProductCard key={bottom.id} product={bottom} getProduct={this.props.getProduct} category="bottoms"/></div>
+            if (this.state.bottomsClicked.includes(bottom.id.toString())){
+                return <div className="responsive"><ProductCard key={bottom.id} product={bottom} getProduct={this.props.getProduct} category="bottoms" changeButton={this.changeButton} clicked={true}/></div>
+            } 
+            return <div className="responsive"><ProductCard key={bottom.id} product={bottom} getProduct={this.props.getProduct} category="bottoms" changeButton={this.changeButton}/></div>
         })
+    }
+
+    changeButton = id => {
+        this.setState({ bottomsClicked: this.state.bottomsClicked + id.toString()}, () => localStorage.bottomsClicked = this.state.bottomsClicked)
     }
 
     render () {
