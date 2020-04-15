@@ -34,7 +34,7 @@ class App extends React.Component {
 
 
   render() {
-    console.log("App.js - state:", this.state)
+    // console.log("App.js - state:", this.state)
     return (
       <Router>
         <div>

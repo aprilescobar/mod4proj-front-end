@@ -60,7 +60,7 @@ export default class CreateOutfit extends React.Component {
     }
 
     render () {
-        console.log("inside Create Outfit", this.state)
+        // console.log("inside Create Outfit", this.state)
         return (
             <Container>
                 <h3>Create Outfit!</h3>
