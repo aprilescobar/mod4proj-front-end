@@ -55,8 +55,6 @@ class OutfitCard extends React.Component {
             .then(newReview => {
                 this.props.handleNewReview(newReview)
             })
-        this.setState(initialState)
-
     }
 
     render() {
