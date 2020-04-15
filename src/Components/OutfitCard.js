@@ -67,7 +67,7 @@ class OutfitCard extends React.Component {
                     <ListGroup variant="flush">
                         {this.props.outfit.comments && this.props.outfit.comments.map(comment =>
                             <ListGroup.Item variant="light" key={comment.id}>
-                                {user.name}: {comment.text}
+                                {user.name}: <em>{comment.text}</em>
                             </ListGroup.Item>
                         )}
                     </ListGroup>
