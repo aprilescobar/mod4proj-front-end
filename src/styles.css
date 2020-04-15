@@ -168,7 +168,8 @@ div.desc {
   overflow: scroll;
 }
 
-#commentForm {
-  padding: 5px;
+#commentList {
+  max-width: 55%; 
+  margin: 0 auto;   
   text-align: center;
 }

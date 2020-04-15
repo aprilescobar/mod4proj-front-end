@@ -1,12 +1,11 @@
 import React from 'react';
-import { Container, Row, Col} from 'react-bootstrap';
-
+import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import CommentForm from './CommentForm';
 
 class OutfitCard extends React.Component {
     state = {
         likes: this.props.outfit.likes, 
         displayCommentForm: false, 
-        comments: []
     }
 
     increaseLikes = () => {
@@ -31,39 +30,13 @@ class OutfitCard extends React.Component {
         })
     }
 
-    displayCommentForm = () => (
-        <form id={this.props.outfit.id}>
-            <div>
-                <input type="text" name="comment" placeholder="Comment here" />
-            </div>
-            <input type="submit" value="Post Comment" onSubmit={this.submitComment}/>
-        </form>
-    )
-
-    submitComment = (event) => {
-        event.preventDefault()
-
-        fetch('http://localhost:3000/comments', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Accept: 'application/json'
-            },
-            body: JSON.stringify({ ...this.state.comments, outfit_id: this.props.outfit.id })
-        })
-            .then(res => res.json())
-            .then(newReview => {
-                this.props.handleNewReview(newReview)
-            })
-    }
-
     render() {
         const outfit = this.props.outfit
         const top = this.props.outfit.top
         const user = this.props.outfit.user
         const bottom = this.props.outfit.bottom
         const shoe = this.props.outfit.shoe
-        
+
         return (
             <Container className="outfitContainer">
                 <br></br>
@@ -90,13 +63,24 @@ class OutfitCard extends React.Component {
                             </div>
                     </Col>
                 </Row> 
+                <div id="commentList">
+                    <ListGroup variant="flush">
+                        {this.props.outfit.comments && this.props.outfit.comments.map(comment =>
+                            <ListGroup.Item variant="light" key={comment.id}>
+                                {user.name}: {comment.text}
+                            </ListGroup.Item>
+                        )}
+                    </ListGroup>
+                </div>
+
+
                     <div className="likeButtonDiv">
                         <button id={this.props.outfit.id} onClick={this.increaseLikes}>{this.state.likes} <span role="img"> ❤️</span></button>
                         <button onClick={this.toggleDisplayCommentForm}>Add a Comment</button>
                     </div>
-                    <div id="commentForm">
-                        {this.state.displayCommentForm && this.displayCommentForm()}
-                    </div>
+                        <Col sm={4}>
+                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} handleNewComment={this.props.handleNewComment} outfitId={outfit.id}/>}
+                        </Col>
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
                     <br></br>
             </Container>
