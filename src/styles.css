@@ -167,3 +167,9 @@ div.desc {
   
   overflow: scroll;
 }
+
+#commentList {
+  max-width: 55%; 
+  margin: 0 auto;   
+  text-align: center;
+}
