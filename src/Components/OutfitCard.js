@@ -70,7 +70,8 @@ class OutfitCard extends React.Component {
                             </div>
                     </Col>
                 </Row> 
-                <div id="commentList">
+                <div id="commentHeader"><h6>Comments</h6></div> 
+                <div id="commentList">    
                     <ListGroup variant="flush">
                         {this.state.comments && this.state.comments.map(comment =>
                             <ListGroup.Item variant="light" key={comment.id}>
