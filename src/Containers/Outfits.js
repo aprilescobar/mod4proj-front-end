@@ -17,9 +17,10 @@ class Outfits extends React.Component {
     // adds new comment to a specific outfit if the outfit ids match
     handleNewComment = (newComment) => {
         let displayOutfits = this.state.outfits.map(outfit => {
-            if (outfit.id === newComment.outfit_id) {
+            if (outfit.id === newComment.outfitId) {
                 let newTargetOutfit = { ...outfit }
-                return newTargetOutfit.comments = [...newTargetOutfit.comments, newComment]
+                newTargetOutfit.comments = [...newTargetOutfit.comments, newComment]
+                return newTargetOutfit
             } else {
                 return outfit
             }
