@@ -17,15 +17,15 @@ const OptionCard = props => {
     const card = product => {
         return (
             <div className="productCards">
-            <div className="gallery">
-                    <img src={product.img_url} alt={product.name}/>
-                <div className="desc">
-                    <h6>{product.name}</h6>
-                    <Button variant="outline-secondary"> + Select </Button>{' '}
-                    <Button variant="outline-secondary" name={product.category} id={product.product_id} value={product.id} onClick={props.handleRemove}> - Remove </Button>{' '}
+                <div className="gallery">
+                        <img src={product.img_url} alt={product.name}/>
+                    <div className="desc">
+                        <h6>{product.name}</h6>
+                        <Button variant="outline-secondary" name={product.category} id={product.product_id} value={product.img_url} onClick={props.handleSelect}> + Select </Button>{' '}
+                        <Button variant="outline-secondary" name={product.category} id={product.product_id} value={product.id} onClick={props.handleRemove}> - Remove </Button>{' '}
+                    </div>
                 </div>
             </div>
-        </div>
         )
     }
 
