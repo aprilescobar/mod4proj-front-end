@@ -2,11 +2,11 @@ import React from 'react';
 import Button from 'react-bootstrap/Button'
 
 const ProductCard = props => {
+
     const product = props.product
 
     const handleClick = () => {
         props.getProduct(product, props.category)
-        props.changeButton(product.id)
     }
 
     return (
