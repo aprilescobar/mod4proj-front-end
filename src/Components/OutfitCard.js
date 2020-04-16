@@ -31,6 +31,13 @@ class OutfitCard extends React.Component {
         })
     }
 
+    // adds new comment to a specific outfit if the outfit ids match
+    handleNewComment = (newComment) => {
+        this.setState({
+           comments: [...this.state.comments, newComment]
+        })
+    }
+
     render() {
         const outfit = this.props.outfit
         const top = this.props.outfit.top
@@ -66,9 +73,10 @@ class OutfitCard extends React.Component {
                 </Row> 
                 <div id="commentList">
                     <ListGroup variant="flush">
-                        {this.props.outfit.comments && this.props.outfit.comments.map(comment =>
+                        {this.state.comments && this.state.comments.map(comment =>
                             <ListGroup.Item variant="light" key={comment.id}>
                                 {user.name}: <em>{comment.text}</em>
+                                {/* currently rendering name of user who designed outfit; need it to render name of user who left the comment */}
                             </ListGroup.Item>
                         )}
                     </ListGroup>
@@ -80,7 +88,7 @@ class OutfitCard extends React.Component {
                         <button onClick={this.toggleDisplayCommentForm}>Add a Comment</button>
                     </div>
                         <Col sm={4}>
-                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} comments={this.state.comments} handleNewComment={this.props.handleNewComment} />}
+                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
                         </Col>
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
                     <br></br>

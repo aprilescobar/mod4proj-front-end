@@ -14,27 +14,25 @@ class Outfits extends React.Component {
         }))
     }
 
-    // adds new comment to a specific outfit if the outfit ids match
-    handleNewComment = (newComment) => {
-        let displayOutfits = this.state.outfits.map(outfit => {
-            if (outfit.id === newComment.outfitId) {
-                let newTargetOutfit = { ...outfit }
-                newTargetOutfit.comments = [...newTargetOutfit.comments, newComment]
-                return newTargetOutfit
-            } else {
-                return outfit
-            }
-        })
-        this.setState({
-            outfits: displayOutfits
-        })
-    }
+    // // adds new comment to a specific outfit if the outfit ids match
+    // handleNewComment = (newComment) => {
+    //     let displayOutfits = this.state.outfits.map(outfit => {
+    //         if (outfit.id === newComment.outfitId) {
+    //             let newTargetOutfit = { ...outfit }
+    //             newTargetOutfit.comments = [...newTargetOutfit.comments, newComment]
+    //             return newTargetOutfit
+    //         } else {
+    //             return outfit
+    //         }
+    //     })
+    //     this.setState({
+    //         outfits: displayOutfits
+    //     })
+    // }
 
-    // pass OutfitCard the handleNewComment function as a props so OutfitCard can then 
-    // communicate any new comments data to its parent (OutfitsContainer) 
     renderOutfits = () => {
         return this.state.outfits.map(outfit => 
-            <OutfitCard key={outfit.id} outfit={outfit} handleNewComment={this.handleNewComment} />)
+            <OutfitCard key={outfit.id} outfit={outfit} />)
     }
 
     render() {
