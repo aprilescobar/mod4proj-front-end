@@ -3,30 +3,49 @@ import ProductCard from '../Components/ProductCard';
 
 class Bottoms extends React.Component{
     state = {
-        bottoms: [],
-        bottomsClicked: ""
+        bottoms: []
     }
 
     componentDidMount() {
         fetch('http://localhost:3000/bottoms')
         .then(res => res.json())
-        .then(bottoms => this.setState({bottoms}))    
-        localStorage.bottomsClicked && this.setState({bottomsClicked: localStorage.bottomsClicked})
+        .then(bottoms => this.setState({bottoms})) 
     }
 
     renderBottoms = () => {
+        const clicked = this.clickedBottoms()
         const bottoms = [...this.state.bottoms]
         return bottoms.map(bottom => {
-            if (this.state.bottomsClicked.includes(bottom.id.toString())){
-                return <div className="responsive"><ProductCard key={bottom.id} product={bottom} getProduct={this.props.getProduct} category="bottoms" changeButton={this.changeButton} clicked={true}/></div>
-            } 
-            return <div className="responsive"><ProductCard key={bottom.id} product={bottom} getProduct={this.props.getProduct} category="bottoms" changeButton={this.changeButton}/></div>
+            if (clicked.includes(bottom.id)){
+                return (
+                    <div className="responsive">
+                        <ProductCard 
+                            key={bottom.id} 
+                            product={bottom} 
+                            getProduct={this.props.getProduct} 
+                            category="bottoms" 
+                            clicked={true}
+                        />
+                    </div>
+                )
+            }
+            return (
+                <div className="responsive">
+                    <ProductCard 
+                        key={bottom.id} 
+                        product={bottom} 
+                        getProduct={this.props.getProduct} 
+                        category="bottoms" 
+                    />
+                </div>
+            )
         })
     }
 
-    changeButton = id => {
-        this.setState({ bottomsClicked: this.state.bottomsClicked + id.toString()}, () => localStorage.bottomsClicked = this.state.bottomsClicked)
+    clickedBottoms = () => {
+        return this.props.bottoms.map(clicked => clicked.product_id)
     }
+
 
     render () {
         return (    

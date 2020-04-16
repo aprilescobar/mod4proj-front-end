@@ -37,7 +37,6 @@ class App extends React.Component {
     const description = product.description
     const img_url = product.img_url
 
-    console.log("inside getProduct",product)
     fetch('http://localhost:3000/options', {
       method: "POST",
       headers: {
@@ -75,7 +74,6 @@ class App extends React.Component {
     }
   }
 
-
   render() {
     // console.log("App.js - state:", this.state)
     return (
@@ -87,10 +85,10 @@ class App extends React.Component {
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/outfits" component={Outfits} />
           <Route exact path="/users" component={Users} />
-          <Route exact path="/tops" render={() => <Tops getProduct={this.getProduct}/>} />
-          <Route exact path="/bottoms" render={() => <Bottoms getProduct={this.getProduct}/>} />
-          <Route exact path="/shoes" render={() => <Shoes getProduct={this.getProduct}/>} />
-          <Route exact path="/outfits/new" render={() => <CreateOutfit {...this.state} />} />
+          <Route exact path="/tops" render={() => <Tops getProduct={this.getProduct} tops={this.state.tops}/>} />
+          <Route exact path="/bottoms" render={() => <Bottoms getProduct={this.getProduct} bottoms={this.state.bottoms}/>} />
+          <Route exact path="/shoes" render={() => <Shoes getProduct={this.getProduct} shoes={this.state.shoes}/>} />
+          <Route exact path="/outfits/new" render={() => <CreateOutfit {...this.state} />}/>
         </div>
       </Router>
     );
