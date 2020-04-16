@@ -36,6 +36,7 @@ class OutfitCard extends React.Component {
         const user = this.props.outfit.user
         const bottom = this.props.outfit.bottom
         const shoe = this.props.outfit.shoe
+        console.log(this.props.outfit)
 
         return (
             <Container className="outfitContainer">
@@ -79,7 +80,7 @@ class OutfitCard extends React.Component {
                         <button onClick={this.toggleDisplayCommentForm}>Add a Comment</button>
                     </div>
                         <Col sm={4}>
-                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} handleNewComment={this.props.handleNewComment} outfitId={outfit.id}/>}
+                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} handleNewComment={this.props.handleNewComment} />}
                         </Col>
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
                     <br></br>
