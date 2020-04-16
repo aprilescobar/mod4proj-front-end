@@ -43,7 +43,7 @@ class CommentForm extends React.Component {
             </Form.Group>
             <Button variant="light" type="submit" value="Post Comment">
                Submit Comment
-         </Button>
+            </Button>
          </Form>
       )
    }
