@@ -94,11 +94,11 @@ class OutfitCard extends React.Component {
                         <button onClick={this.toggleDisplayComments}>{this.state.displayComments ? "Hide Comments" : "Display Comments"}</button>
                         <button onClick={this.toggleDisplayCommentForm}>{this.state.displayCommentForm ? "Hide Comment Form" : "Add a Comment"}</button>
                     </div>
-                        <Col sm={4}>
+                    
+                    <div id="commentForm">
                     {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
-                        </Col>
-                    <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
-                    <br></br>
+                    </div>
+                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
             </Container>
         )
     }
