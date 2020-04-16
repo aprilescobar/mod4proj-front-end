@@ -6,7 +6,8 @@ class OutfitCard extends React.Component {
     state = {
         likes: this.props.outfit.likes, 
         displayCommentForm: false, 
-        comments: this.props.outfit.comments
+        comments: this.props.outfit.comments, 
+        displayComments: false
     }
 
     increaseLikes = () => {
@@ -28,6 +29,12 @@ class OutfitCard extends React.Component {
     toggleDisplayCommentForm = () => {
         this.setState({
             displayCommentForm: !this.state.displayCommentForm
+        })
+    }
+
+    toggleDisplayComments = () => {
+        this.setState({
+            displayComments: !this.state.displayComments
         })
     }
 
@@ -70,22 +77,22 @@ class OutfitCard extends React.Component {
                             </div>
                     </Col>
                 </Row> 
-                <div id="commentHeader"><h6>Comments</h6></div> 
-                <div id="commentList">    
-                    <ListGroup variant="flush">
-                        {this.state.comments && this.state.comments.map(comment =>
-                            <ListGroup.Item variant="light" key={comment.id}>
-                                {user.name}: <em>{comment.text}</em>
-                                {/* currently rendering name of user who designed outfit; need it to render name of user who left the comment */}
-                            </ListGroup.Item>
-                        )}
-                    </ListGroup>
-                </div>
-
-
+                {this.state.displayComments &&
+                    (<div id="commentList">
+                        <ListGroup variant="flush">
+                            {this.state.comments && this.state.comments.map(comment =>
+                                <ListGroup.Item variant="light" key={comment.id}>
+                                    {user.name}: <em>{comment.text}</em>
+                                    {/* currently rendering name of user who designed outfit; need it to render name of user who left the comment */}
+                                </ListGroup.Item>
+                            )}
+                        </ListGroup>
+                    </div>)}
+                
                     <div className="likeButtonDiv">
                         <button id={this.props.outfit.id} onClick={this.increaseLikes}>{this.state.likes} <span role="img"> ❤️</span></button>
-                        <button onClick={this.toggleDisplayCommentForm}>Add a Comment</button>
+                        <button onClick={this.toggleDisplayComments}>{this.state.displayComments ? "Hide Comments" : "Display Comments"}</button>
+                        <button onClick={this.toggleDisplayCommentForm}>{this.state.displayCommentForm ? "Hide Comment Form" : "Add a Comment"}</button>
                     </div>
                         <Col sm={4}>
                     {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
