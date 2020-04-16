@@ -31,7 +31,6 @@ class OutfitCard extends React.Component {
         })
     }
 
-    // adds new comment to a specific outfit if the outfit ids match
     handleNewComment = (newComment) => {
         this.setState({
            comments: [...this.state.comments, newComment]

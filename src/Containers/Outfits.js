@@ -5,7 +5,7 @@ class Outfits extends React.Component {
     state = {
         outfits: []
     }
-
+    
     componentDidMount() {
         fetch('http://localhost:3000/outfits')
             .then(resp => resp.json())
@@ -13,22 +13,6 @@ class Outfits extends React.Component {
             outfits: data
         }))
     }
-
-    // // adds new comment to a specific outfit if the outfit ids match
-    // handleNewComment = (newComment) => {
-    //     let displayOutfits = this.state.outfits.map(outfit => {
-    //         if (outfit.id === newComment.outfitId) {
-    //             let newTargetOutfit = { ...outfit }
-    //             newTargetOutfit.comments = [...newTargetOutfit.comments, newComment]
-    //             return newTargetOutfit
-    //         } else {
-    //             return outfit
-    //         }
-    //     })
-    //     this.setState({
-    //         outfits: displayOutfits
-    //     })
-    // }
 
     renderOutfits = () => {
         return this.state.outfits.map(outfit => 
