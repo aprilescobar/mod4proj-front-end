@@ -55,8 +55,6 @@ export default class CreateOutfit extends React.Component {
                 name
             })
         })
-        .then(res => res.json())
-        .then(outfit => console.log(outfit))
     }
 
     render () {

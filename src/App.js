@@ -88,13 +88,16 @@ class App extends React.Component {
   }
 
   updateList = (product_id, category) => {
+    const id = parseInt(product_id, 0)
     if (category === "tops"){
-      const updatedTops = this.state.tops.filter(top => top.id !== product_id)
+      const updatedTops = this.state.tops.filter(top => top.product_id !== id)
       this.setState({tops: updatedTops})
     } if (category === "bottoms"){
-      this.setState({bottoms: [...this.state.bottoms]})
+      const updatedBottoms = this.state.bottoms.filter(bottom => bottom.product_id !== id)
+      this.setState({bottoms: updatedBottoms})
     } if (category === "shoes"){
-      this.setState({shoes: [...this.state.shoes]})
+      const updatedShoes = this.state.shoes.filter(shoe => shoe.product_id !== id)
+      this.setState({shoes: updatedShoes})
     }
   }
 
