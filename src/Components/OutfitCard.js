@@ -6,6 +6,7 @@ class OutfitCard extends React.Component {
     state = {
         likes: this.props.outfit.likes, 
         displayCommentForm: false, 
+        comments: this.props.outfit.comments
     }
 
     increaseLikes = () => {
@@ -67,7 +68,7 @@ class OutfitCard extends React.Component {
                     <ListGroup variant="flush">
                         {this.props.outfit.comments && this.props.outfit.comments.map(comment =>
                             <ListGroup.Item variant="light" key={comment.id}>
-                                {user.name}: {comment.text}
+                                {user.name}: <em>{comment.text}</em>
                             </ListGroup.Item>
                         )}
                     </ListGroup>
@@ -79,7 +80,7 @@ class OutfitCard extends React.Component {
                         <button onClick={this.toggleDisplayCommentForm}>Add a Comment</button>
                     </div>
                         <Col sm={4}>
-                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} handleNewComment={this.props.handleNewComment} outfitId={outfit.id}/>}
+                    {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} comments={this.state.comments} handleNewComment={this.props.handleNewComment} />}
                         </Col>
                     <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
                     <br></br>

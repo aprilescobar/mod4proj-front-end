@@ -20,6 +20,7 @@ class Outfits extends React.Component {
             if (outfit.id === newComment.outfitId) {
                 let newTargetOutfit = { ...outfit }
                 newTargetOutfit.comments = [...newTargetOutfit.comments, newComment]
+                return newTargetOutfit
             } else {
                 return outfit
             }

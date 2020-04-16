@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'; 
 
 const initialState = {
-   text: "", 
-   displayName: ""
+   text: ""
 }
 
 class CommentForm extends React.Component {
@@ -16,6 +15,7 @@ class CommentForm extends React.Component {
       })
    }
 
+   // we are hard-coding the user id for now
    handleSubmit = (event) => {
       event.preventDefault()
 
@@ -25,12 +25,13 @@ class CommentForm extends React.Component {
             'Content-Type': 'application/json',
             Accept: 'application/json'
          },
-         body: JSON.stringify({ ...this.state, outfit_id: this.props.outfitId })
+         body: JSON.stringify({ ...this.state, user_id: 2, outfit_id: this.props.outfitId })
       })
          .then(resp => resp.json())
          .then(newComment => {
             this.props.handleNewComment(newComment)
          })
+      // clear the form
       this.setState(initialState)
    }
 
@@ -39,7 +40,6 @@ class CommentForm extends React.Component {
          <Form onSubmit={this.handleSubmit}>
             <Form.Group>
                <Form.Control type="text" name="text" size="sm" placeholder="Comment Here" onChange={this.handleChange} value={this.state.text}/>
-               <Form.Control type="text" name="displayName" size="sm" placeholder="Your Display Name" onChange={this.handleChange} value={this.state.displayName}/>
             </Form.Group>
             <Button variant="light" type="submit" value="Post Comment">
                Submit Comment
