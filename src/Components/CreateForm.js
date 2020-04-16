@@ -18,7 +18,7 @@ const CreateForm = props => {
             <Form.Group controlId="formBasicEmail">
                 <Form.Control type="text" name="shoe" placeholder="Select Shoe" value={props.shoe} onChange={props.handleChange}/>
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="outline-secondary" type="submit">
                 Submit
             </Button>
         </Form>
