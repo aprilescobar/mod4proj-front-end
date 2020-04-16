@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 
 const CreateForm = props => {
-    console.log("inside createForm props:", props)
     return (
         <Form onSubmit={props.handleSubmit}>
             <Form.Group controlId="formBasicEmail">
@@ -26,5 +25,3 @@ const CreateForm = props => {
 }
 
 export default CreateForm
-
-{/* // of1 = Outfit.create(top_id: 5, bottom_id: 2, shoe_id: 6, user_id: 1, likes: 0, name: "Basic") */}

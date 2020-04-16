@@ -12,7 +12,6 @@ import Shoes from './Containers/Shoes';
 import Bottoms from './Containers/Bottoms';
 import Tops from './Containers/Tops';
 import CreateOutfit from './Containers/CreateOutfit';
-// import Fashion from './Containers/Fashion'
 
 class App extends React.Component {
 
@@ -23,6 +22,10 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+    this.fetchOptions()
+  }
+
+  fetchOptions = () => {
     fetch('http://localhost:3000/options')
     .then(res => res.json())
     .then(options => this.renderOptions(options))
@@ -74,6 +77,27 @@ class App extends React.Component {
     }
   }
 
+  handleRemove = e => {
+    const category = e.target.name
+    const product_id = e.target.id
+    const id = parseInt(e.target.value, 0)
+    fetch(`http://localhost:3000/options/${id}`, {
+      method: "DELETE"
+    })
+    this.updateList(product_id, category)
+  }
+
+  updateList = (product_id, category) => {
+    if (category === "tops"){
+      const updatedTops = this.state.tops.filter(top => top.id !== product_id)
+      this.setState({tops: updatedTops})
+    } if (category === "bottoms"){
+      this.setState({bottoms: [...this.state.bottoms]})
+    } if (category === "shoes"){
+      this.setState({shoes: [...this.state.shoes]})
+    }
+  }
+
   render() {
     // console.log("App.js - state:", this.state)
     return (
@@ -88,7 +112,7 @@ class App extends React.Component {
           <Route exact path="/tops" render={() => <Tops getProduct={this.getProduct} tops={this.state.tops}/>} />
           <Route exact path="/bottoms" render={() => <Bottoms getProduct={this.getProduct} bottoms={this.state.bottoms}/>} />
           <Route exact path="/shoes" render={() => <Shoes getProduct={this.getProduct} shoes={this.state.shoes}/>} />
-          <Route exact path="/outfits/new" render={() => <CreateOutfit {...this.state} />}/>
+          <Route exact path="/outfits/new" render={() => <CreateOutfit {...this.state} handleRemove={this.handleRemove}/>}/>
         </div>
       </Router>
     );

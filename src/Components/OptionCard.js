@@ -22,7 +22,7 @@ const OptionCard = props => {
                 <div className="desc">
                     <h6>{product.name}</h6>
                     <Button variant="outline-secondary"> + Select </Button>{' '}
-                    <Button variant="outline-secondary"> - Remove </Button>{' '}
+                    <Button variant="outline-secondary" name={product.category} id={product.product_id} value={product.id} onClick={props.handleRemove}> - Remove </Button>{' '}
                 </div>
             </div>
         </div>
