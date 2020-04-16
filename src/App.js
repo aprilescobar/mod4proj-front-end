@@ -22,13 +22,56 @@ class App extends React.Component {
     shoes: []
   }
 
+  componentDidMount(){
+    fetch('http://localhost:3000/options')
+    .then(res => res.json())
+    .then(options => this.renderOptions(options))
+  }
+
   getProduct = (product, category) => {
-    if (category === 'tops') {
-      this.setState({ tops: [...this.state.tops, product]})
-    } if (category === 'bottoms') {
-      this.setState({ bottoms: [...this.state.bottoms, product]})
-    } if (category === 'shoes') {
-      this.setState({ shoes: [...this.state.shoes, product]})
+    const user_id = 1
+    const product_id = product.id
+    const brand = product.brand
+    const name = product.name
+    const color = product.color
+    const description = product.description
+    const img_url = product.img_url
+
+    console.log("inside getProduct",product)
+    fetch('http://localhost:3000/options', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify ({
+        user_id,
+        product_id,
+        brand,
+        name,
+        color,
+        description,
+        img_url,
+        category
+      })
+    })
+    .then(res => res.json())
+    .then(option => this.renderOption(option))
+  }
+
+  renderOptions = options =>{
+    options.map(option => {
+      this.renderOption(option)
+    })
+  }
+
+  renderOption = option => {
+    if (option.category === "tops"){
+      this.setState({tops: [...this.state.tops, option]})
+    } if (option.category === "bottoms"){
+      this.setState({bottoms: [...this.state.bottoms, option]})
+    } if (option.category === "shoes"){
+      this.setState({shoes: [...this.state.shoes, option]})
     }
   }
 
