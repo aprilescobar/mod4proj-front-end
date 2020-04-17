@@ -54,7 +54,7 @@ h3 {
 .outfitImage {
     height: 350px;
     width: auto;
-    align-self: center;
+    /* align-self: center; */
 }
 
 .cardTitle {
@@ -73,7 +73,6 @@ h3 {
 
 #outfitDesigner{
     text-align: right; 
-    align-self: right;
     font-size: 10pt; 
     color: rgb(43, 42, 42); 
     font-family: sans-serif;

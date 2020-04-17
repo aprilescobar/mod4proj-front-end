@@ -59,22 +59,22 @@ class OutfitCard extends React.Component {
                 </Container>
                 <Row>
                     <Col>
-                            <img className="outfitImage" src={top.img_url} alt={top.name} />
-                            <div className="card-body">
-                                <h6 className="cardTitle">{top.name}</h6>
-                            </div>
+                        <img className="outfitImage" src={top.img_url} alt={top.name} />
+                        <div className="card-body">
+                            <h6 className="cardTitle">{top.name}</h6>
+                        </div>
                     </Col>
                     <Col>
-                            <img className="outfitImage" src={bottom.img_url} alt={bottom.name} />
-                            <div className="card-body">
-                                <h6 className="cardTitle">{bottom.name}</h6>
-                            </div>
+                        <img className="outfitImage" src={bottom.img_url} alt={bottom.name} />
+                        <div className="card-body">
+                            <h6 className="cardTitle">{bottom.name}</h6>
+                        </div>
                     </Col>
                     <Col>
-                            <img className="outfitImage" src={shoe.img_url} alt={shoe.name} />
-                            <div className="card-body">
-                                <h6 className="cardTitle">{shoe.name}</h6>
-                            </div>
+                        <img className="outfitImage" src={shoe.img_url} alt={shoe.name} />
+                        <div className="card-body">
+                            <h6 className="cardTitle">{shoe.name}</h6>
+                        </div>
                     </Col>
                 </Row> 
                 {this.state.displayComments &&
