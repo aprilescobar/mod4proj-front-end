@@ -16,9 +16,15 @@ import CreateOutfit from './Containers/CreateOutfit';
 class App extends React.Component {
 
   state = {
-    tops: [],
+    tops: [], 
     bottoms: [],
-    shoes: []
+    shoes: [],
+    currentUser: null
+  }
+
+  setUser = user => {
+    console.log(this.props)
+    this.setState({currentUser: user}, () => {this.props.history.push('/')})
   }
 
   componentDidMount(){
@@ -61,8 +67,8 @@ class App extends React.Component {
     .then(option => this.renderOption(option))
   }
 
-  renderOptions = options =>{
-    options.map(option => {
+  renderOptions = options => {
+    return options.map(option => {
       this.renderOption(option)
     })
   }
@@ -102,14 +108,13 @@ class App extends React.Component {
   }
 
   render() {
-    // console.log("App.js - state:", this.state)
     return (
       <Router>
         <div>
           <Navbar />
           <Route exact path="/" component={Home} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/signup" component={SignUp} />
+          <Route exact path="/signup" render={() => <SignUp setUser={this.setUser}/>} />
           <Route exact path="/outfits" component={Outfits} />
           <Route exact path="/users" component={Users} />
           <Route exact path="/tops" render={() => <Tops getProduct={this.getProduct} tops={this.state.tops}/>} />

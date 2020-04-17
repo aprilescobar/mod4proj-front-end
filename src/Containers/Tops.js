@@ -17,17 +17,18 @@ class Tops extends React.Component{
         const tops = [...this.state.tops]
         return tops.map(top => {
             if (clicked.includes(top.id)){
-                return (
-                    <div className="responsive">
-                        <ProductCard 
-                            key={top.id} 
-                            product={top} 
-                            getProduct={this.props.getProduct} 
-                            category="tops" 
-                            clicked={true}
-                        />
-                    </div>
-                )
+                return
+                // return (
+                //     <div className="responsive">
+                //         <ProductCard 
+                //             key={top.id} 
+                //             product={top} 
+                //             getProduct={this.props.getProduct} 
+                //             category="tops" 
+                //             clicked={true}
+                //         />
+                //     </div>
+                // )
             }
             return (
                 <div className="responsive">
