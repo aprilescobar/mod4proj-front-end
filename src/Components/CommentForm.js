@@ -44,7 +44,7 @@ class CommentForm extends React.Component {
             <Button variant="light" type="submit" value="Post Comment">
                Submit Comment
             </Button>
-         </Form>
+            </Form>
       )
    }
 }

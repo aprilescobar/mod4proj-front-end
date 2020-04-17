@@ -54,7 +54,7 @@ h3 {
 .outfitImage {
     height: 350px;
     width: auto;
-    align-self: center;
+    /* align-self: center; */
 }
 
 .cardTitle {
@@ -73,8 +73,7 @@ h3 {
 
 #outfitDesigner{
     text-align: right; 
-    align-self: right;
-    font-size: 9pt; 
+    font-size: 10pt; 
     color: rgb(43, 42, 42); 
     font-family: sans-serif;
 }
@@ -170,7 +169,14 @@ div.desc {
 #commentList {
   width:450px;
   overflow-y: scroll;
-  height: 200px;
+  height: auto;
+  max-height: 200px;
   margin: 0 auto;   
   text-align: center;
+}
+
+#commentForm {
+  max-width: 50%; 
+  margin: 0 auto;   
+  align-items: center;
 }
