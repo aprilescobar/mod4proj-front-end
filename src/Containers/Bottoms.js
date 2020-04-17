@@ -17,17 +17,18 @@ class Bottoms extends React.Component{
         const bottoms = [...this.state.bottoms]
         return bottoms.map(bottom => {
             if (clicked.includes(bottom.id)){
-                return (
-                    <div className="responsive">
-                        <ProductCard 
-                            key={bottom.id} 
-                            product={bottom} 
-                            getProduct={this.props.getProduct} 
-                            category="bottoms" 
-                            clicked={true}
-                        />
-                    </div>
-                )
+                return
+                // return (
+                //     <div className="responsive">
+                //         <ProductCard 
+                //             key={bottom.id} 
+                //             product={bottom} 
+                //             getProduct={this.props.getProduct} 
+                //             category="bottoms" 
+                //             clicked={true}
+                //         />
+                //     </div>
+                // )
             }
             return (
                 <div className="responsive">
