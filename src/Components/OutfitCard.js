@@ -82,7 +82,7 @@ class OutfitCard extends React.Component {
                         <ListGroup variant="flush">
                             {this.state.comments && this.state.comments.map(comment =>
                                 <ListGroup.Item variant="light" key={comment.id}>
-                                    {user.name}: <em>{comment.text}</em>
+                                    {user.username}: <em>{comment.text}</em>
                                     {/* currently rendering name of user who designed outfit; need it to render name of user who left the comment */}
                                 </ListGroup.Item>
                             )}
@@ -97,7 +97,7 @@ class OutfitCard extends React.Component {
                         <Col sm={4}>
                     {this.state.displayCommentForm && <CommentForm outfitId={outfit.id} comments={this.state.comments} handleNewComment={this.handleNewComment} />}
                         </Col>
-                    <p id="outfitDesigner"><em>Outfit Created By: {user.name}</em></p>
+                    <p id="outfitDesigner"><em>Outfit Created By: {user.username}</em></p>
                     <br></br>
             </Container>
         )

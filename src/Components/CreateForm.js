@@ -22,10 +22,13 @@ const CreateForm = props => {
                 <div className="gallery">
                         <img src={props.shoe_url ? props.shoe_url : "https://image1.masterfile.com/getImage/NjEwOC0wNTg2OTQ1MGVuLjAwMDAwMDAw=AFvWAh/6108-05869450en_Masterfile.jpg"} alt="Select a Shoe"/>
                 </div>
+            </div> <br/>
+            <div className="submitForm">
+                <Button variant="outline-secondary" type="submit">
+                    Submit
+                </Button>
             </div>
-            <Button variant="outline-secondary" type="submit">
-                Submit
-            </Button>
+                <br/>
         </Form>
     )
 }

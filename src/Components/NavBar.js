@@ -21,10 +21,10 @@ const NavBar = () => {
                <NavDropdown.Item> <Link to="/outfits/new" className="links">Create Outfit</Link></NavDropdown.Item>
             </NavDropdown>
          </Nav>
-         <Form inline>
+         {/* <Form inline>
             <Button href="/login" variant="outline-secondary" className="navBtn">Log In</Button>
             <Button href="/signup" variant="outline-secondary" className="navBtn">Sign Up</Button>
-         </Form>
+         </Form> */}
       </Navbar.Collapse>
    </Navbar>
    )
