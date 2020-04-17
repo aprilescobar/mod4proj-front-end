@@ -175,6 +175,9 @@ div.desc {
   text-align: center;
 }
 
+.submitForm {
+  text-align: center;
+
 #commentForm {
   max-width: 50%; 
   margin: 0 auto;   
